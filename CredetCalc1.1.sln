@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredetCalc1.1", "CredetCalc1.1\CredetCalc1.1.csproj", "{74340206-8135-43B0-96FD-084266F1287E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74340206-8135-43B0-96FD-084266F1287E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74340206-8135-43B0-96FD-084266F1287E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74340206-8135-43B0-96FD-084266F1287E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74340206-8135-43B0-96FD-084266F1287E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56106BB8-511A-4609-855C-1C2D294B86E1}
+	EndGlobalSection
+EndGlobal
