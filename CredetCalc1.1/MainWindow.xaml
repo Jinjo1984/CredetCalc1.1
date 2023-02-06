@@ -23,8 +23,8 @@
                 <RowDefinition Height="30*"/>
                 <RowDefinition Height="503*"/>
             </Grid.RowDefinitions>
-            <Ellipse Fill="Red" Height="14" MouseLeftButtonDown="closeApp" VerticalAlignment="Center" Cursor="Hand" ToolTip="Закрыть" HorizontalAlignment="Left" Width="15" Margin="697,0,0,0" />
-            <Ellipse Fill="Yellow" Height="14" VerticalAlignment="Center" MouseLeftButtonDown="RollUp" Cursor="Hand" ToolTip="Свернуть" HorizontalAlignment="Left" Width="15" Margin="677,0,0,0"/>
+            <Ellipse Fill="#FFA09D9D" Height="14" MouseLeftButtonDown="closeApp" VerticalAlignment="Center" Cursor="Hand" ToolTip="Закрыть" HorizontalAlignment="Left" Width="15" Margin="697,0,0,0" />
+            <Ellipse Fill="#FFA09D9D" Height="14" VerticalAlignment="Center" MouseLeftButtonDown="RollUp" Cursor="Hand" ToolTip="Свернуть" HorizontalAlignment="Left" Width="15" Margin="677,0,0,0"/>
             <Border Background="#FFECF0F1" Margin="30,63,30,80" Grid.Row="1" CornerRadius="8">
                 <Grid>
                     <Grid.RowDefinitions>
