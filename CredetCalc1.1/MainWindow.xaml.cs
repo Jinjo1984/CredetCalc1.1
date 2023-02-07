@@ -66,14 +66,18 @@ namespace CredetCalc1._1
                 PercentCredit = Convert.ToDouble(PercentCreditTextBox.Text) / 100;
                 MonthQuantity = Convert.ToDouble(MonthQuantityTextBox.Text);
                 PaysWindow paysWindow = new PaysWindow(SumCredit, PercentCredit, MonthQuantity, ChekRadioBox);
-                paysWindow.Show();
+                try
+                {
+                    paysWindow.Show();
+                }
+                catch { }
             }
-            catch  { }
-           
-            
-            
-           
-            
+            catch (FormatException ex) { new WindowError().Show(); }
+
+
+
+
+
         }
         
         private void DiffChecked(object sender, RoutedEventArgs e)
