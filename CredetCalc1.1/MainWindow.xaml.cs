@@ -73,11 +73,6 @@ namespace CredetCalc1._1
                 catch { }
             }
             catch (FormatException ex) { new WindowError().Show(); }
-
-
-
-
-
         }
         
         private void DiffChecked(object sender, RoutedEventArgs e)
