@@ -13,6 +13,7 @@
         <Grid MouseLeftButtonDown="DragWindow">
             <Ellipse Fill="#FFA09D9D" Height="14" MouseLeftButtonDown="closeApp" VerticalAlignment="Top" Cursor="Hand" ToolTip="Закрыть" HorizontalAlignment="Left" Width="15" Margin="833,10,0,0" />
             <Ellipse Fill="#FFA09D9D" Height="14" VerticalAlignment="Top" MouseLeftButtonDown="RollUp" Cursor="Hand" ToolTip="Свернуть" HorizontalAlignment="Left" Width="15" Margin="813,10,0,0"/>
+
             <Border Background="#FFDADEDF" CornerRadius="8" Margin="37,115,38,337">
                 <Grid>
                     <Button x:Name="buttonDebt" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top"  FontFamily="Century Gothic" BorderBrush="#FF81837F" Height="59" Width="320" Background="#FF06A6F3" FontWeight="Bold" Foreground="#FFF0E9E9" FontSize="14" Margin="19,10,0,0">
@@ -72,6 +73,13 @@
                 </Grid>
             </Border>
             <Label x:Name="label" Content="Расчет платежей" Margin="330,35,330,503" FontFamily="Century Gothic" FontSize="20"/>
+            <Button x:Name="BackToMainMenu" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"  FontFamily="Century Gothic" BorderBrush="#FF81837F" Height="30" Width="117" Background="#FFA09D9D" FontWeight="Bold" Foreground="#FF090909" FontSize="14" Margin="47,37,0,0" Click="BactToMain_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
         </Grid>
 

@@ -63,16 +63,17 @@ namespace CredetCalc1._1
             try
             {
                 SumCredit = Convert.ToDouble(SummCreditTextBox.Text);
-                PercentCredit = Convert.ToDouble(PercentCreditTextBox.Text) / 100;
+                PercentCredit = Convert.ToDouble(PercentCreditTextBox.Text)/100;
                 MonthQuantity = Convert.ToDouble(MonthQuantityTextBox.Text);
                 PaysWindow paysWindow = new PaysWindow(SumCredit, PercentCredit, MonthQuantity, ChekRadioBox);
                 try
                 {
                     paysWindow.Show();
+                    CloseMain();
                 }
                 catch { }
             }
-            catch (FormatException ex) { new WindowError().Show(); }
+            catch (FormatException ex) { new WindowError().Show(); Close(); }
         }
         
         private void DiffChecked(object sender, RoutedEventArgs e)
@@ -84,5 +85,11 @@ namespace CredetCalc1._1
         {
             ChekRadioBox = false;
         }
+        public void CloseMain() 
+        {
+            Close();
+        }
+
+
     }
 }

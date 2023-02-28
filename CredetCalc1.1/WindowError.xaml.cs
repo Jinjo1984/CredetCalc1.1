@@ -44,6 +44,9 @@ namespace CredetCalc1._1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
+            MainWindow mainWidow = new MainWindow();
+            mainWidow.Show();
             Close();
         }
     }

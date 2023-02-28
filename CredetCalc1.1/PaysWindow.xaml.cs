@@ -31,7 +31,7 @@ namespace CredetCalc1._1
             }
             else{
                 //Анн
-                AnnuityPay();
+                AnnuityPay(SumCredit, PercentCredit, MonthQuantity);
                 Close();
             }
             
@@ -67,6 +67,14 @@ namespace CredetCalc1._1
             catch (Exception ex) { }
         }
 
+        private void BactToMain_Click(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
+
         public class Credits //класс для подвязки ListView
         {
             public string Month { get; set; }
@@ -75,12 +83,15 @@ namespace CredetCalc1._1
             public double MainDebt { get; set; }
             public double PercentPay { get; set; }
         }
-        private void AnnuityPay() //метод по вычислению аннуитетного платежа
+        private void AnnuityPay(double SumCredit, double PercentCredit, double MonthQuantity) //метод по вычислению аннуитетного платежа
         {
-            MessageBox.Show("Функция не реализована");
+            PercentCredit = Math.Round (PercentCredit / 12,5); 
+            double coefficient = PercentCredit * (Math.Pow(1 + PercentCredit,MonthQuantity)) /(Math.Pow(1+PercentCredit,MonthQuantity) -1);
+            double annPayInMonth = SumCredit * Math.Round(coefficient, 3);
         }
         void DifferentialPay(double SumCredit, double PercentCredit, double MonthQuantity)
         {
+
             List<Credits> pay = new List<Credits>();
             double mainDebt = 0;
             double percentPay = 0;
@@ -108,6 +119,7 @@ namespace CredetCalc1._1
             listView.ItemsSource = pay;
             buttonDebt.Content = $"Общая стоимость кредита: {Math.Round(SumDebt, 2)}";
             buttonRemains.Content = $"Переплата по процентам: {Math.Round(percentPayCount, 2)}";
+            
         }//метод по вычислению дифференциального платежа
 
     }
