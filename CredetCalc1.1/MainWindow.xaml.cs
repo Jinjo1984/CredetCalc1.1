@@ -57,6 +57,7 @@ namespace CredetCalc1._1
 
         public double SumCredit, PercentCredit, MonthQuantity;     
         
+      
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -90,6 +91,11 @@ namespace CredetCalc1._1
             Close();
         }
 
-
+        public void SetNum(double SetSumCredit,double SetPercentCredit,double SetMonthQuantity)
+        {
+            SummCreditTextBox.Text = SetSumCredit.ToString();
+            PercentCreditTextBox.Text = SetPercentCredit.ToString();
+            MonthQuantityTextBox.Text = SetMonthQuantity.ToString();
+        }
     }
 }

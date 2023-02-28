@@ -34,7 +34,6 @@ namespace CredetCalc1._1
         }
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
-
             try
             {
                 DragMove();
@@ -43,10 +42,8 @@ namespace CredetCalc1._1
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
-        {
-
-            MainWindow mainWidow = new MainWindow();
-            mainWidow.Show();
+        { 
+            new MainWindow().Show();
             Close();
         }
     }

@@ -21,9 +21,14 @@ namespace CredetCalc1._1
     {
 
 
+
+        public double SetSumCredit, SetPercentCredit, SetMonthQuantity;
         public PaysWindow(double SumCredit, double PercentCredit, double MonthQuantity, bool check)
         {
             InitializeComponent();
+            SetSumCredit= SumCredit;
+            SetPercentCredit= PercentCredit*100;
+            SetMonthQuantity= MonthQuantity;
             if (check)
             {
                 //Диф
@@ -68,9 +73,10 @@ namespace CredetCalc1._1
         }
 
         private void BactToMain_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {   
             MainWindow mainWindow = new MainWindow();
+
+            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity);
             mainWindow.Show();
             Close();
         }
