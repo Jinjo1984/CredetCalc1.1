@@ -8,7 +8,7 @@
         Title="MainWindow" Height="445" Width="722" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="C:\Users\Георгий\Documents\CreditCalc 1.1\CredetCalc1.1\CredetCalc1.1\Resource\creditico.ico">
 
 
     <Border CornerRadius="10" MouseLeftButtonDown="DragWindow" >

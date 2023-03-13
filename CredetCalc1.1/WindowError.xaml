@@ -7,7 +7,7 @@
       Title="Кредитный калькулятор" Height="353" Width="653" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="C:\Users\Георгий\Documents\CreditCalc 1.1\CredetCalc1.1\CredetCalc1.1\Resource\creditico.ico">
     <Border Background="#FFECF0F1" CornerRadius="8" MouseLeftButtonDown="DragWindow">
         <Grid>
             <Button x:Name="button" Content="ОК " HorizontalAlignment="Center" VerticalAlignment="Top" Click="button_Click" FontFamily="Century Gothic" BorderBrush="#FF81837F" Height="30" Width="172" Background="#FF06A6F3" FontWeight="Bold" Foreground="#FFF0E9E9" FontSize="14" Margin="0,297,0,0">

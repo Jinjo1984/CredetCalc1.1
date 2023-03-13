@@ -19,7 +19,7 @@ namespace CredetCalc1._1
     /// </summary>
     public partial class PaysWindow : Window
     {
-        public double SetSumCredit, SetPercentCredit, SetMonthQuantity;
+        public double SetSumCredit, SetPercentCredit, SetMonthQuantity;//переменные которые не используются в вычислениях, но нужны для передачи в MainWindow
         public PaysWindow(double SumCredit, double PercentCredit, double MonthQuantity, bool check)
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace CredetCalc1._1
 
 
 
-        public double SumCredit, PercentCredit, MonthQuantity, RamainsPay;
+        public double SumCredit, PercentCredit, MonthQuantity, RamainsPay;//переменные для вычисления 
 
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
@@ -69,11 +69,11 @@ namespace CredetCalc1._1
             catch (Exception ex) { }
         }
 
-        private void BactToMain_Click(object sender, RoutedEventArgs e)
+        private void BactToMain_Click(object sender, RoutedEventArgs e)//возврат к mainWidnod с последующим закрытием окна PaysWindow
         {   
             MainWindow mainWindow = new MainWindow();
 
-            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity);
+            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity);//Возвращаю вводные значения в MainWindow
             mainWindow.Show();
             Close();
         }
@@ -90,9 +90,9 @@ namespace CredetCalc1._1
         {
             PercentCredit = Math.Round (PercentCredit / 12,5); 
             double coefficient = PercentCredit * (Math.Pow(1 + PercentCredit,MonthQuantity)) /(Math.Pow(1+PercentCredit,MonthQuantity) -1);
-            double annPayInMonth = SumCredit * Math.Round(coefficient, 3);
+            double annPayInMonth = SumCredit * Math.Round(coefficient, 3); 
         }
-        void DifferentialPay(double SumCredit, double PercentCredit, double MonthQuantity)
+        void DifferentialPay(double SumCredit, double PercentCredit, double MonthQuantity)//метод по вычислению дифференцального  платежа
         {
 
             List<Credits> pay = new List<Credits>();
@@ -123,7 +123,7 @@ namespace CredetCalc1._1
             buttonDebt.Content = $"Общая стоимость кредита: {Math.Round(SumDebt, 2)}";
             buttonRemains.Content = $"Переплата по процентам: {Math.Round(percentPayCount, 2)}";
             
-        }//метод по вычислению дифференциального платежа
+        }
 
     }
 }

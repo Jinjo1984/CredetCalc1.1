@@ -8,8 +8,8 @@
         Title="Кредитный калькулятор" Height="570" Width="858" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        WindowStartupLocation="CenterScreen">
-    <Border Background="White" CornerRadius="8" MouseLeftButtonDown="DragWindow">
+        WindowStartupLocation="CenterScreen" Icon="C:\Users\Георгий\Documents\CreditCalc 1.1\CredetCalc1.1\CredetCalc1.1\Resource\creditico.ico">
+  <Border Background="White" CornerRadius="8" MouseLeftButtonDown="DragWindow">
         <Grid MouseLeftButtonDown="DragWindow">
             <Ellipse Fill="#FFA09D9D" Height="14" MouseLeftButtonDown="closeApp" VerticalAlignment="Top" Cursor="Hand" ToolTip="Закрыть" HorizontalAlignment="Left" Width="15" Margin="833,10,0,0" />
             <Ellipse Fill="#FFA09D9D" Height="14" VerticalAlignment="Top" MouseLeftButtonDown="RollUp" Cursor="Hand" ToolTip="Свернуть" HorizontalAlignment="Left" Width="15" Margin="813,10,0,0"/>
