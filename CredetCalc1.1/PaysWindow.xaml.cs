@@ -19,9 +19,6 @@ namespace CredetCalc1._1
     /// </summary>
     public partial class PaysWindow : Window
     {
-
-
-
         public double SetSumCredit, SetPercentCredit, SetMonthQuantity;
         public PaysWindow(double SumCredit, double PercentCredit, double MonthQuantity, bool check)
         {
@@ -29,7 +26,7 @@ namespace CredetCalc1._1
             SetSumCredit= SumCredit;
             SetPercentCredit= PercentCredit*100;
             SetMonthQuantity= MonthQuantity;
-            if (check)
+            if (check)//проверка чекбокса на выбор вида платежа
             {
                 //Диф
                 DifferentialPay(SumCredit, PercentCredit, MonthQuantity);

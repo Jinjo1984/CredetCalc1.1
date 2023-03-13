@@ -26,7 +26,7 @@ namespace CredetCalc1._1
             InitializeComponent();
         }
         public bool ChekRadioBox;
-        private void DragWindow(object sender, MouseButtonEventArgs e)
+        private void DragWindow(object sender, MouseButtonEventArgs e) //Метод для перемещения окна
         {
             
             try
@@ -36,7 +36,7 @@ namespace CredetCalc1._1
             catch(Exception ex) { }
         }
 
-        private void closeApp(object sender, MouseButtonEventArgs e)
+        private void closeApp(object sender, MouseButtonEventArgs e)//Метод для закрытия окна
         {
 
             try
@@ -46,7 +46,7 @@ namespace CredetCalc1._1
             catch(Exception ex) { }
         }
 
-        private void RollUp(object sender, MouseButtonEventArgs e)
+        private void RollUp(object sender, MouseButtonEventArgs e)//метод для сворачивания окна
         {
             try
             {
@@ -74,24 +74,24 @@ namespace CredetCalc1._1
                 }
                 catch { }
             }
-            catch (FormatException ex) { new WindowError().Show(); Close(); }
+            catch (FormatException ex) { new WindowError().Show(); Close(); } //Обработка ошибок ввода 
         }
         
-        private void DiffChecked(object sender, RoutedEventArgs e)
+        private void DiffChecked(object sender, RoutedEventArgs e) //обработка события выбранного типа платежа
         {
             ChekRadioBox = true;
         }
 
-        private void AnnChecked(object sender, RoutedEventArgs e)
+        private void AnnChecked(object sender, RoutedEventArgs e) //обработка события выбранного типа платежа
         {
             ChekRadioBox = false;
         }
-        public void CloseMain() 
+        public void CloseMain() //метод для закрытия окна из PaysWindow
         {
             Close();
         }
 
-        public void SetNum(double SetSumCredit,double SetPercentCredit,double SetMonthQuantity)
+        public void SetNum(double SetSumCredit,double SetPercentCredit,double SetMonthQuantity)//Метод для передачи вводных в mainWindow
         {
             SummCreditTextBox.Text = SetSumCredit.ToString();
             PercentCreditTextBox.Text = SetPercentCredit.ToString();
