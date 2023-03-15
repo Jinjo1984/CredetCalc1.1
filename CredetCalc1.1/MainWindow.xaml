@@ -65,7 +65,7 @@
                     <Label Content="На сколько месяцев" Margin="21,18,5,14" FontFamily="Century Gothic" FontSize="15" Grid.Row="1"/>
                     <Label Content="Процентная ставка" Margin="21,16,14,13" FontFamily="Century Gothic" FontSize="15" Grid.Row="2"/>
                     <Label Content="Тип платежей: " Margin="21,10,14,42" FontFamily="Century Gothic" FontSize="15" Grid.Row="3"/>
-                    <RadioButton Grid.Column="1" Margin="97,10,219,58" Grid.Row="3" GroupName="CheckPay" Name="Diff" Content="Дифференциальный" IsChecked="True" Checked="DiffChecked" FontFamily="Century Gothic" FontWeight="Bold"/>
+                    <RadioButton Grid.Column="1" Margin="97,10,219,58" Grid.Row="3" GroupName="CheckPay" Name="Diff" Content="Дифференциальный" IsChecked="True" Checked="DiffChecked" FontFamily="Century Gothic" FontWeight="Bold" />
                     <RadioButton Grid.Column="1" Margin="97,42,271,26" Grid.Row="3" GroupName="CheckPay" Name="Ann" Content="Аннуитетный" Checked="AnnChecked" FontFamily="Century Gothic" FontWeight="Bold"/>
                 </Grid>
             </Border>

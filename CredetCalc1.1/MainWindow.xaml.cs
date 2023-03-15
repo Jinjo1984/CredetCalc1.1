@@ -91,11 +91,19 @@ namespace CredetCalc1._1
             Close();
         }
 
-        public void SetNum(double SetSumCredit,double SetPercentCredit,double SetMonthQuantity)//Метод для передачи вводных в mainWindow
+        public void SetNum(double SetSumCredit,double SetPercentCredit,double SetMonthQuantity,bool CheckRadioBox)//Метод для передачи вводных в mainWindow
         {
             SummCreditTextBox.Text = SetSumCredit.ToString();
             PercentCreditTextBox.Text = SetPercentCredit.ToString();
             MonthQuantityTextBox.Text = SetMonthQuantity.ToString();
+            if(CheckRadioBox )
+            {
+                Diff.IsChecked= true;
+            }
+            else
+            {
+                Ann.IsChecked= true;
+            }
         }
     }
 }

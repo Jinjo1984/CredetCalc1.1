@@ -20,6 +20,7 @@ namespace CredetCalc1._1
     public partial class PaysWindow : Window
     {
         public double SetSumCredit, SetPercentCredit, SetMonthQuantity;//переменные которые не используются в вычислениях, но нужны для передачи в MainWindow
+        bool check;
         public PaysWindow(double SumCredit, double PercentCredit, double MonthQuantity, bool check)
         {
             InitializeComponent();
@@ -30,11 +31,12 @@ namespace CredetCalc1._1
             {
                 //Диф
                 DifferentialPay(SumCredit, PercentCredit, MonthQuantity);
+                check= true;
             }
             else{
                 //Анн
                 AnnuityPay(SumCredit, PercentCredit, MonthQuantity);
-                Close();
+               check = false;
             }
             
         }
@@ -73,7 +75,7 @@ namespace CredetCalc1._1
         {   
             MainWindow mainWindow = new MainWindow();
 
-            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity);//Возвращаю вводные значения в MainWindow
+            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity,check);//Возвращаю вводные значения в MainWindow
             mainWindow.Show();
             Close();
         }
@@ -86,11 +88,50 @@ namespace CredetCalc1._1
             public double MainDebt { get; set; }
             public double PercentPay { get; set; }
         }
+        public decimal Truncate(decimal number, int digits)//метод для усечения числа
+        {
+            decimal stepper = (decimal)(Math.Pow(10.0, (double)digits));
+            int temp = (int)(stepper * number);
+            return (decimal)temp / stepper;
+        }
         private void AnnuityPay(double SumCredit, double PercentCredit, double MonthQuantity) //метод по вычислению аннуитетного платежа
         {
-            PercentCredit = Math.Round (PercentCredit / 12,5); 
-            double coefficient = PercentCredit * (Math.Pow(1 + PercentCredit,MonthQuantity)) /(Math.Pow(1+PercentCredit,MonthQuantity) -1);
-            double annPayInMonth = SumCredit * Math.Round(coefficient, 3); 
+            List<Credits> pay = new List<Credits>();
+            Credits cred = new Credits { Month = null, Pays = 0, Ramains = 0, MainDebt = 0, PercentPay = 0 }; //Создаю экземпляр класса Credit с обнулеными 
+            double percentForPay = PercentCredit;
+            PercentCredit = (Math.Round (PercentCredit / 12,5)%10); 
+            
+            double coefficient =  PercentCredit * (Math.Pow(1 + PercentCredit,MonthQuantity)) /(Math.Pow(1+PercentCredit,MonthQuantity) -1);
+            decimal TruncateCoefficient = Truncate((decimal)coefficient,6);
+            double annPayInMonth = SumCredit * (double)TruncateCoefficient;
+            double[] RemainsPay = new double[(int)MonthQuantity];
+            double SumCreditInRemains = SumCredit;//для расчета остатка
+            int month = 1;
+            double[] MainDebt = new double[(int)MonthQuantity];
+            double[] percentPay  = new double[(int)MonthQuantity];
+            
+            for(int i = 0; i < MonthQuantity; i++)
+            {
+                 
+
+                percentPay[i] = SumCreditInRemains * percentForPay / 12;//процент по плтажу 
+                MainDebt[i] = annPayInMonth - percentPay[i];
+                SumCreditInRemains -= annPayInMonth - percentPay[i]; // основной долг из таблицы
+                
+                RemainsPay[i] = SumCreditInRemains;
+                
+
+                RemainsPay[(int)MonthQuantity-1] = 0;
+                
+                cred = new Credits { Month = Convert.ToString(month), Ramains = RemainsPay[i], Pays = annPayInMonth,PercentPay = percentPay[i],MainDebt = MainDebt[i] };
+                month++;
+                pay.Add(cred);
+            }
+            listView.ItemsSource = pay;
+            double GeneralCostCredit = Math.Round( annPayInMonth * MonthQuantity,2);
+            buttonDebt.Content = $"Общая стоимость кредита: {GeneralCostCredit}";
+            double RemainsForPay = Math.Round( annPayInMonth * MonthQuantity - SumCredit,2);
+            buttonRemains.Content = $"Переплата по процентам: {RemainsForPay}";
         }
         void DifferentialPay(double SumCredit, double PercentCredit, double MonthQuantity)//метод по вычислению дифференцального  платежа
         {
@@ -115,7 +156,9 @@ namespace CredetCalc1._1
                     percentPayCount += percentPay;
                     cred = new Credits { Month = Convert.ToString(month), Pays = Pays[i], Ramains = RamainsPay, MainDebt = mainDebt, PercentPay = percentPay };
                     month++;
+                    
                     pay.Add(cred);
+
                 }
             SumDebt = SumCredit + percentPayCount;
             effectivePercent = Math.Round(((SumDebt * 100) / SumCredit) - 100, 2);
