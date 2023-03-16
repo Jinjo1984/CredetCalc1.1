@@ -20,7 +20,7 @@ namespace CredetCalc1._1
     public partial class PaysWindow : Window
     {
         public double SetSumCredit, SetPercentCredit, SetMonthQuantity;//переменные которые не используются в вычислениях, но нужны для передачи в MainWindow
-        bool check;
+        bool checkInSet;
         public PaysWindow(double SumCredit, double PercentCredit, double MonthQuantity, bool check)
         {
             InitializeComponent();
@@ -31,12 +31,12 @@ namespace CredetCalc1._1
             {
                 //Диф
                 DifferentialPay(SumCredit, PercentCredit, MonthQuantity);
-                check= true;
+                checkInSet= true;
             }
             else{
                 //Анн
                 AnnuityPay(SumCredit, PercentCredit, MonthQuantity);
-               check = false;
+                checkInSet = false;
             }
             
         }
@@ -75,7 +75,7 @@ namespace CredetCalc1._1
         {   
             MainWindow mainWindow = new MainWindow();
 
-            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity,check);//Возвращаю вводные значения в MainWindow
+            mainWindow.SetNum(SetSumCredit,SetPercentCredit,SetMonthQuantity,checkInSet);//Возвращаю вводные значения в MainWindow
             mainWindow.Show();
             Close();
         }

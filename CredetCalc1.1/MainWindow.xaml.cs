@@ -80,11 +80,13 @@ namespace CredetCalc1._1
         private void DiffChecked(object sender, RoutedEventArgs e) //обработка события выбранного типа платежа
         {
             ChekRadioBox = true;
+            
         }
 
         private void AnnChecked(object sender, RoutedEventArgs e) //обработка события выбранного типа платежа
         {
             ChekRadioBox = false;
+           
         }
         public void CloseMain() //метод для закрытия окна из PaysWindow
         {
