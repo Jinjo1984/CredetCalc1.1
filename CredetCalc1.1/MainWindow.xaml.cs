@@ -7,11 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.MessageBox;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace CredetCalc1._1
 {
@@ -24,6 +28,8 @@ namespace CredetCalc1._1
         public MainWindow()
         {
             InitializeComponent();
+            SummCreditTextBox.Focus();
+
         }
         public bool ChekRadioBox;
         private void DragWindow(object sender, MouseButtonEventArgs e) //Метод для перемещения окна
@@ -71,6 +77,7 @@ namespace CredetCalc1._1
                 {
                     paysWindow.Show();
                     CloseMain();
+                    
                 }
                 catch { }
             }
@@ -88,6 +95,35 @@ namespace CredetCalc1._1
             ChekRadioBox = false;
            
         }
+
+        private void Border_KeyDown(object sender, KeyEventArgs e) // переход по TextBox
+        {
+            TextBox[] textBoxes = new TextBox[3] {
+                SummCreditTextBox,MonthQuantityTextBox,PercentCreditTextBox
+            };
+            
+            if(e.Key == Key.Enter)
+            {
+              for(int i = 0; i < textBoxes.Length; i++)
+                {
+                    if (textBoxes[i].IsFocused)
+                    {
+                        if (i == 2)
+                        {
+                            button_Click(null, null);
+                            break;
+                        }
+                        textBoxes[i + 1].CaretIndex = textBoxes[i + 1].Text.Length;
+                        textBoxes[i + 1].ScrollToEnd();
+                        textBoxes[i+1].Focus();
+                        
+                        break;
+
+                    }
+                }
+            }
+        }
+
         public void CloseMain() //метод для закрытия окна из PaysWindow
         {
             Close();
@@ -98,7 +134,11 @@ namespace CredetCalc1._1
             SummCreditTextBox.Text = SetSumCredit.ToString();
             PercentCreditTextBox.Text = SetPercentCredit.ToString();
             MonthQuantityTextBox.Text = SetMonthQuantity.ToString();
-            if(CheckRadioBox )
+           
+            SummCreditTextBox.CaretIndex = SummCreditTextBox.Text.Length;
+            SummCreditTextBox.ScrollToEnd();
+            SummCreditTextBox.Focus();
+            if (CheckRadioBox )
             {
                 Diff.IsChecked= true;
             }
